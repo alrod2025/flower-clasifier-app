@@ -66,6 +66,9 @@ def predict(image, model, cat_to_name, topk=5):
 # Streamlit UI
 st.title("🌸 Flower Image Classifier")
 
+st.markdown("This AI-powered app identifies flower species from images using a deep learning model trained on 102 flower categories.")
+
+
 # Load model and class names
 model = load_model("checkpoint.pth")
 with open("cat_to_name.json", "r") as f:
