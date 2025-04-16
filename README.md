@@ -1,18 +1,22 @@
+# Flower Image Classifier – Deep Learning with PyTorch
 
-# Flower Image Classifier - Deep Learning with PyTorch
+This project classifies flower species using a convolutional neural network trained on the Oxford 102 Flower dataset. It demonstrates practical skills in transfer learning, data preprocessing, model evaluation, and web-based deployment using Streamlit.
 
-This project trains an image classification model using transfer learning to recognize different species of flowers from the Oxford 102 Flower dataset. It's part of the Udacity Data Scientist Nanodegree program and demonstrates how to preprocess image data, build and train a model using PyTorch, perform inference, and visualize predictions.
+The project was developed as part of the Udacity Data Scientist Nanodegree program.
+
+**Live demo:**  
+https://alrod2025-flower-clasifier-app.streamlit.app
 
 ---
 
 ## Project Overview
 
-- **Model**: VGG16 (pre-trained on ImageNet)
-- **Dataset**: Oxford 102 Flower Categories
-- **Classes**: 102 flower species
-- **Framework**: PyTorch
-- **Accuracy**: ~70%+ on the test set
-- **Device**: Compatible with CPU & GPU (T4, etc.)
+- Model: VGG16 (with transfer learning)
+- Dataset: Oxford 102 Flower Categories
+- Classes: 102 flower species
+- Accuracy: ~70%+ on the test set
+- Deployment: Streamlit Cloud
+- Device: Compatible with CPU and GPU
 
 ---
 
@@ -20,71 +24,64 @@ This project trains an image classification model using transfer learning to rec
 
 ```
 .
-├── checkpoint.pth                # Saved model checkpoint
-├── Flower Classifier.ipynb       # Complete Colab-ready Jupyter Notebook
-├── cat_to_name.json              # Class-to-name mapping for flower labels
-├── train.py / predict.py         # (Optional) Standalone scripts
-├── README.md                     # Project documentation (you are here)
+├── app.py                         # Streamlit web app
+├── checkpoint.pth                # Trained model checkpoint (downloaded at runtime)
+├── flower_classifier_rebuild.ipynb  # Jupyter Notebook for training and testing
+├── cat_to_name.json              # Mapping from class index to flower name
+├── requirements.txt              # Project dependencies
+└── README.md                     # Project documentation
 ```
 
 ---
 
 ## Features
 
-- Transfer learning with VGG16
-- Data augmentation for training set
-- Model evaluation and testing
-- Top-5 predictions with probabilities
-- Sanity checking with Matplotlib
-- Inference-ready pipeline
+- Transfer learning using a pretrained VGG16 model
+- Image preprocessing pipeline (resize, crop, normalize)
+- Top-5 prediction with confidence scores
+- Sanity check with visual output
+- Streamlit web app deployment
+- Model file is automatically downloaded from Google Drive
 
 ---
 
-## How to Use
+## Try It in Google Colab
 
-### Open in Google Colab
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/Flower%20Classifier.ipynb)
-
-> Replace `YOUR_USERNAME/YOUR_REPO` with your actual GitHub path
+[Open in Colab](https://colab.research.google.com/github/alrod2025/flower-clasifier-app/blob/main/flower_classifier_rebuild.ipynb)
 
 ---
 
-### Requirements
+## Installation
 
-If running locally:
+To run the app locally:
 
 ```bash
-pip install torch torchvision matplotlib seaborn numpy pandas pillow
+git clone https://github.com/alrod2025/flower-clasifier-app.git
+cd flower-clasifier-app
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 ---
 
 ## Example Output
 
-![Prediction Example](insert-your-screenshot-url-here)
+An uploaded image is classified into the top five most probable flower species, each with a confidence score.
 
-- Input: An image of a flower
-- Output: Top 5 predicted flower names with probabilities
+![App Screenshot](screenshot.png)
+
+
 
 ---
 
 ## Acknowledgements
 
 - Oxford 102 Flower Dataset
-- [Udacity Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025)
-- Pre-trained models from `torchvision.models`
-
----
-
-## Next Steps
-
-- Convert notebook into deployable web app
-- Extend with more flower datasets or fine-tune for other objects
-- Deploy with Flask or Streamlit (bonus)
+- Udacity Data Scientist Nanodegree
+- Pretrained models from `torchvision.models`
 
 ---
 
 ## License
 
-This project is for educational purposes and is distributed under the MIT License.
+This project is licensed under the MIT License and is intended for educational use.
