@@ -74,7 +74,8 @@ with open("cat_to_name.json", "r") as f:
 uploaded_file = st.file_uploader("Upload an image of a flower", type=["jpg", "jpeg", "png"])
 if uploaded_file:
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
+
     
     probs, names = predict(image, model, cat_to_name)
     
